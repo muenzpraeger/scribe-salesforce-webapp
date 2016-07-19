@@ -1,0 +1,18 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+}
+
+repositories {
+  jcenter()
+}
+
+dependencies {
+  runtime "org.slf4j:slf4j-simple:1.7.12"
+  compile "com.heroku.sdk:heroku-jdbc:0.1.1"
+}
+
+task stage {
+  dependsOn installDist
+}
