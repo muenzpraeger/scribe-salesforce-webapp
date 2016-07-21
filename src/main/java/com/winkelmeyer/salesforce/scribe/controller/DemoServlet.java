@@ -45,7 +45,7 @@ public class DemoServlet extends HttpServlet {
                 switch (reqParameter) {
                 case "oauth":
                     String redirectUrl = ScribeHelper.getInstance()
-                            .getAuthorizationUrl(req.getRequestURI() + "/callback");
+                            .getAuthorizationUrl(req.getRequestURL() + "/demo/callback");
                     resp.sendRedirect(redirectUrl);
                     return;
                 case "userdata":
