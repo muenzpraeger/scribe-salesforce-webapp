@@ -1,5 +1,15 @@
 {
   "name": "Scribe Salesforce web app example",
   "description": "Showcasing how to use the Scribe OAuth library with Salesforce",
-  "image": "heroku/gradle"
+  "image": "heroku/gradle",
+  "website": "https://github.com/muenzpraeger/scribe-salesforce-webapp",
+  "repository": "https://github.com/muenzpraeger/scribe-salesforce-webapp",
+  "env" {
+    "OAUTH_CONSUMER_KEY": {
+      "description": "Enter the Salesforce Connected App Consumer Key in here."
+    },
+    "OAUTH_CONSUMER_SECRET": {
+      "description": "Enter the Salesforce Connected App Consumer Secret in here."
+    }
+  }
 }
