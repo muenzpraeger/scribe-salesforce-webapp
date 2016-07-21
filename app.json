@@ -4,7 +4,7 @@
   "image": "heroku/gradle",
   "website": "https://github.com/muenzpraeger/scribe-salesforce-webapp",
   "repository": "https://github.com/muenzpraeger/scribe-salesforce-webapp",
-  "env" {
+  "env" : {
     "OAUTH_CONSUMER_KEY": {
       "description": "Enter the Salesforce Connected App Consumer Key in here."
     },
