@@ -1,3 +1,6 @@
+apply plugin: 'war'
+apply plugin: 'eclipse'
+
 buildscript {
   repositories {
     jcenter()
@@ -10,9 +13,16 @@ repositories {
 
 dependencies {
   runtime "org.slf4j:slf4j-simple:1.7.12"
-  compile "com.heroku.sdk:heroku-jdbc:0.1.1"
+  compile "com.github.jsimone:webapp-runner:8.0.33.1" // We're using embedded Tomcat for the WAR file
+}
+
+task copyToLib(type: Copy) {
+    into "$buildDir/server"
+    from(configurations.compile) {
+        include "webapp-runner*"
+    }
 }
 
 task stage {
-  dependsOn installDist
+  dependsOn clean, war, copyToLib
 }
