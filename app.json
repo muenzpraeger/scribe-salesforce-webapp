@@ -1,5 +1,5 @@
 {
-  "name": "Scribe Salesforce web app example",
+  "name": "Scribe Salesforce web app",
   "description": "Showcasing how to use the Scribe OAuth library with Salesforce",
   "image": "heroku/gradle",
   "website": "https://github.com/muenzpraeger/scribe-salesforce-webapp",
