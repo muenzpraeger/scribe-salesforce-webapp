@@ -45,7 +45,7 @@ public class DemoServlet extends HttpServlet {
                 switch (reqParameter) {
                 case "oauth":
                     String redirectUrl = ScribeHelper.getInstance()
-                            .getAuthorizationUrl("https://scribe-salesforce-webapp.herokuapp.com:5000/demo/callback");
+                            .getAuthorizationUrl(req.getRequestURI() + "/callback");
                     resp.sendRedirect(redirectUrl);
                     return;
                 case "userdata":
