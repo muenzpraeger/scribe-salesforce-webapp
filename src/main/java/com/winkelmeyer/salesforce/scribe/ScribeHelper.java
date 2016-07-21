@@ -48,25 +48,33 @@ public class ScribeHelper {
     }
 
     public String getAccountData() throws IOException {
-        String soqlQuery = "";
-        try {
-            soqlQuery = URLEncoder.encode("Select Id, Name from Account LIMIT 10", "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+        if (accessToken != null) {
+            String soqlQuery = "";
+            try {
+                soqlQuery = URLEncoder.encode("Select Id, Name from Account LIMIT 10", "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+            }
+            String url = accessToken.getInstanceUrl() + "/services/data/v37.0/query?q=" + soqlQuery;
+            final OAuthRequest request = new OAuthRequest(Verb.GET, url, service);
+            request.addHeader("Authorization", "Bearer " + accessToken.getAccessToken());
+            final Response response = request.send();
+            return response.getBody();
+        } else {
+            return "";
         }
-        String url = accessToken.getInstanceUrl() + "/services/data/v37.0/query?q=" + soqlQuery;
-        final OAuthRequest request = new OAuthRequest(Verb.GET, url, service);
-        request.addHeader("Authorization", "Bearer " + accessToken.getAccessToken());
-        final Response response = request.send();
-        return response.getBody();
     }
 
     public String getUserData() throws IOException {
-        String url = accessToken.getInstanceUrl() + "/services/oauth2/userinfo";
-        final OAuthRequest request = new OAuthRequest(Verb.GET, url, service);
-        request.addHeader("Authorization", "Bearer " + accessToken.getAccessToken());
-        final Response response = request.send();
-        return response.getBody();
+        if (accessToken != null) {
+            String url = accessToken.getInstanceUrl() + "/services/oauth2/userinfo";
+            final OAuthRequest request = new OAuthRequest(Verb.GET, url, service);
+            request.addHeader("Authorization", "Bearer " + accessToken.getAccessToken());
+            final Response response = request.send();
+            return response.getBody();
+        } else {
+            return "";
+        }
     }
 
 }
