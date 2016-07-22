@@ -38,31 +38,40 @@ After the deployment you've to enter in the Heroku UI your Connected App's clien
 
 Clone this repo.
 
-`git clone https://github.com/muenzpraeger/scribe-salesforce-webapp`
+```
+git clone https://github.com/muenzpraeger/scribe-salesforce-webapp
+```
 
 Create in the root of the project a file _.env_ as described [here](https://devcenter.heroku.com/articles/heroku-local#set-up-your-local-environment-variables) for storing the Heroku environment variables.
 
 Then add the following two key/value pairs to the _.env_ file and replace the placeholders with your Connected App OAuth values.
 
-`OAUTH_CONSUMER_KEY=your-key-from-salesforce`
-
-`OAUTH_CONSUMER_SECRET=your-secret-from-salesforce`
+```
+OAUTH_CONSUMER_KEY=your-key-from-salesforce
+OAUTH_CONSUMER_SECRET=your-secret-from-salesforce
+```
 
 Create the needed WAR file then by executing Gradle. That'll download (if not already available) all needed dependencies and compile the project.
 
 When you've installed Gradle already onto your system you can run the _stage_ command from the projects root folder.
 
-`gradle stage`
+```
+gradle stage
+```
 
 If you don't have it installed you've to use the Gradle wrapper.
 
-`gradlew stage`
+```
+gradlew stage
+```
 
 After the compilation you'll find in the <project>/build/libs folder the WAR file.
 
 Now start the app via the Heroku Toolbelt.
 
-`heroku local web`
+```
+heroku local web
+```
 
 The WAR can be also used in any other Java Servlet container that supports the Servlet specification 3.+.
 
