@@ -44,9 +44,9 @@ Create in the root of the project a file _.env_ as described [here](https://devc
 
 Then add the following two key/value pairs to the _.env_ file and replace the placeholders with your Connected App OAuth values.
 
-`OAUTH_CONSUMER_KEY=your-key-from-salesforce
+`OAUTH_CONSUMER_KEY=your-key-from-salesforce`
 
-OAUTH_CONSUMER_SECRET=your-secret-from-salesforce`
+`OAUTH_CONSUMER_SECRET=your-secret-from-salesforce`
 
 Create the needed WAR file then by executing Gradle. That'll download (if not already available) all needed dependencies and compile the project.
 
